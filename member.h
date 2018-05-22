@@ -44,5 +44,6 @@ class Member {
 extern void addMember();
 extern void viewMemberInfo();
 extern void editMemberInfo();
+extern void removeMember();
 
 #endif

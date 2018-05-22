@@ -28,7 +28,9 @@ bool inputAndExecute() {
     std::cout << "Add Member" << std::endl;
     addMember();
   } else if (!input.compare("2")) {
-    std::cout << "Option 2" << std::endl;
+    clearScreen();
+    std::cout << "Remove Member" << std::endl;
+    removeMember();
   } else if (!input.compare("3")) {
     clearScreen();
     std::cout << "View Member Info" << std::endl;

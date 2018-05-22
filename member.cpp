@@ -233,3 +233,53 @@ void editMemberInfo() {
     }
   }
 }
+
+void removeMember() {
+  bool finished = false;
+  while (!finished) {
+    std::cout << std::endl;
+    std::cout << "Choose the Member you would like to remove" << std::endl;
+    for (int i = 0; i < members.size(); i++) {
+      std::cout << i + 1<< ". " << members[i].getBusiness() << std::endl;
+    }
+    std::cout << "0. Return to main menu" << std::endl;
+    int response;
+    bool validResponse = false;
+    // std::cout << "Vector Size: " << members.size() << std::endl;
+    while (!validResponse) {
+      std::cout << "> ";
+      std::cin >> response;
+      if (response <= members.size() && response > 0) {
+        bool confirmed = false;
+        bool answered = false;
+        while (!answered) {
+          std::string c;
+          std::cout << "Are you sure you want to remove member? (y for yes, n for no): ";
+          std::cin >> c;
+          if (!c.compare("y")) {
+            confirmed = true;
+            answered = true;
+          } else if (!c.compare("n")) {
+            confirmed = false;
+            answered = true;
+          } else {
+            answered = false;
+          }
+        }
+        if (confirmed) {
+          members.erase(members.begin() + (response - 1));
+          std::cout << "Member removed" << std::endl;
+        }
+        validResponse = true;
+      } else if (response == 0) {
+        finished = true;
+        validResponse = true;
+        return;
+      } else {
+        validResponse = false;
+        std::cout << "Please enter a valid response" << std::endl;
+      }
+    }
+
+  }
+}
