@@ -172,41 +172,37 @@ void editMemberInfo() {
       std::cout << "4. Email" << std::endl;
       std::cout << "5. Membership Plan" << std::endl;
       std::cout << "0. Choose different member" << std::endl;
-      std::cout << std::endl;
+      // std::cout << std::endl;
       validResponse = false;
       while (!validResponse) {
         std::cout << "> ";
         std::cin >> response;
-        if (response <= members.size() && response > 0) {
+        std::string input;
+        if (response == 1) {
+          std::cout << "Input new business: ";
+          std::cin >> input;
+          members[index].setBusiness(input);
           validResponse = true;
-          std::string input;
-          switch(response) {
-            case 1 :
-              std::cout << "Input new business: ";
-              std::cin >> input;
-              members[index].setBusiness(input);
-              break;
-            case 2 :
-              std::cout << "Input new member name: ";
-              std::cin >> input;
-              members[index].setName(input);
-              break;
-            case 3 :
-              std::cout << "Input new phone number: ";
-              std::cin >> input;
-              members[index].setPhoneNumber(input);
-              break;
-            case 4 :
-              std::cout << "Input new email: ";
-              std::cin >> input;
-              members[index].setEmail(input);
-              break;
-            case 5 :
-              std::cout << "Input new membership plan: ";
-              std::cin >> input;
-              members[index].setMembershipPlan(input);
-              break;
-          }
+        } else if (response == 2) {
+          std::cout << "Input new member name: ";
+          std::cin >> input;
+          members[index].setName(input);
+          validResponse = true;
+        } else if (response == 3) {
+          std::cout << "Input new phone number: ";
+          std::cin >> input;
+          members[index].setPhoneNumber(input);
+          validResponse = true;
+        } else if (response == 4) {
+          std::cout << "Input new email: ";
+          std::cin >> input;
+          members[index].setEmail(input);
+          validResponse = true;
+        } else if (response == 5) {
+          std::cout << "Input new membership plan: ";
+          std::cin >> input;
+          members[index].setMembershipPlan(input);
+          validResponse = true;
         } else if (response == 0) {
           finishedMember = true;
           validResponse = true;
