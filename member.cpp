@@ -249,6 +249,7 @@ void removeMember() {
     while (!validResponse) {
       std::cout << "> ";
       std::cin >> response;
+      int index = (response - 1);
       if (response <= members.size() && response > 0) {
         bool confirmed = false;
         bool answered = false;
@@ -267,7 +268,7 @@ void removeMember() {
           }
         }
         if (confirmed) {
-          members.erase(members.begin() + (response - 1));
+          members.erase(members.begin() + index);
           std::cout << "Member removed" << std::endl;
         }
         validResponse = true;
