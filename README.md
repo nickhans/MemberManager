@@ -1,2 +1,2 @@
 # MemberManager
-Tool for office's to use to manage members in office
+Tool for office reception to use to manage members in office space
