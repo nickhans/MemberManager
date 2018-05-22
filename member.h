@@ -18,7 +18,6 @@ class Member {
   public:
     // constructors
     Member();
-    Member(std::string business, std::string membershipPlan);
     Member(std::string name, std::string business, std::string phoneNumber, std::string email, std::string membership, bool isIn);
 
     // set/get functions

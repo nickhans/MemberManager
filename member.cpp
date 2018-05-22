@@ -5,6 +5,7 @@
 Member newMember;
 std::vector<Member> members;
 
+// general member constructor vector for blank member object
 Member::Member() {
   Member::setBusiness("");
   Member::setName("");
@@ -14,15 +15,7 @@ Member::Member() {
   Member::setInOutStatus(false);
 }
 
-Member::Member(std::string business, std::string membershipPlan) {
-  Member::setBusiness(business);
-  Member::setName(NULL);
-  Member::setPhoneNumber(NULL);
-  Member::setEmail(NULL);
-  Member::setMembershipPlan(membershipPlan);
-  Member::setInOutStatus(false);
-}
-
+// member constructor for full member object set-up
 Member::Member(std::string name, std::string business, std::string phoneNumber, std::string email, std::string membershipPlan, bool isIn) {
   Member::setBusiness(business);
   Member::setName(name);
@@ -48,6 +41,7 @@ std::string Member::getEmail() { return Member::email; }
 std::string Member::getMembershipPlan() { return Member::membershipPlan; }
 bool Member::getInOutStatus() { return Member::isIn; }
 
+// add member function that creates new member object, set info, and adds them to the members vector
 void addMember() {
   std::string business, name, phoneNumber, email, membershipPlan, response;
   bool isIn;
@@ -84,6 +78,7 @@ void addMember() {
   members.push_back(newMember);
 }
 
+// function to choose member and print out member info
 void viewMemberInfo() {
   bool finished = false;
   while (!finished) {
@@ -136,6 +131,7 @@ void viewMemberInfo() {
   }
 }
 
+// function to edit individual parts of members info
 void editMemberInfo() {
   bool finished = false;
   while (!finished) {
@@ -234,6 +230,7 @@ void editMemberInfo() {
   }
 }
 
+// function to remove member object from members vector
 void removeMember() {
   bool finished = false;
   while (!finished) {
@@ -281,6 +278,5 @@ void removeMember() {
         std::cout << "Please enter a valid response" << std::endl;
       }
     }
-
   }
 }
