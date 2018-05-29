@@ -3,7 +3,7 @@
 #include <iostream>
 
 Member newMember;
-
+std::vector<Member> members;
 
 // general member constructor vector for blank member object
 Member::Member() {
@@ -41,6 +41,14 @@ std::string Member::getEmail() { return Member::email; }
 std::string Member::getMembershipPlan() { return Member::membershipPlan; }
 bool Member::getInOutStatus() { return Member::isIn; }
 
+std::string returnInOutStatus(int i) {
+  if (members[i].getInOutStatus()) {
+    return "In";
+  } else {
+    return "Out";
+  }
+}
+
 // add member function that creates new member object, set info, and adds them to the members vector
 void addMember() {
   std::string business, name, phoneNumber, email, membershipPlan, response;
@@ -56,7 +64,7 @@ void addMember() {
   std::cin >> email;
   std::cout << "Membership Plan: ";
   std::cin >> membershipPlan;
-  while (!validResponse) {
+  /*while (!validResponse) {
     std::cout << "In the office currently? (y for yes, n for no): ";
     std::cin >> response;
     if (!response.compare("y")) {
@@ -68,13 +76,13 @@ void addMember() {
     } else {
       validResponse = false;
     }
-  }
+  }*/
   newMember.setBusiness(business);
   newMember.setName(name);
   newMember.setPhoneNumber(phoneNumber);
   newMember.setEmail(email);
   newMember.setMembershipPlan(membershipPlan);
-  newMember.setInOutStatus(isIn);
+  // newMember.setInOutStatus(isIn);
   members.push_back(newMember);
 }
 
@@ -111,7 +119,7 @@ void viewMemberInfo() {
     std::cout << "Phone Number: " << members[index].getPhoneNumber() << std::endl;
     std::cout << "Email: " << members[index].getEmail() << std::endl;
     std::cout << "Membership Plan: " << members[index].getMembershipPlan() << std::endl;
-    std::cout << "In/Out Status: " << members[index].getInOutStatus() << std::endl;
+    std::cout << "In/Out Status: " << returnInOutStatus(index) << std::endl;
     std::cout << std::endl;
     std::cout << "To view another members info please press 1, to return to the main menu press 0" << std::endl;
     validResponse = false;
