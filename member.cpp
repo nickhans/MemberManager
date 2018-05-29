@@ -49,6 +49,7 @@ std::string returnInOutStatus(int i) {
   }
 }
 
+#pragma region "MEMBER FUNCTIONS"
 // add member function that creates new member object, set info, and adds them to the members vector
 void addMember() {
   std::string business, name, phoneNumber, email, membershipPlan, response;
@@ -288,3 +289,4 @@ void removeMember() {
     }
   }
 }
+#pragma endregion
