@@ -5,6 +5,7 @@
 Member newMember;
 std::vector<Member> members;
 
+#pragma region "CONSTRUCTORS/GETSET"
 // general member constructor vector for blank member object
 Member::Member() {
   Member::setBusiness("");
@@ -41,6 +42,10 @@ std::string Member::getEmail() { return Member::email; }
 std::string Member::getMembershipPlan() { return Member::membershipPlan; }
 bool Member::getInOutStatus() { return Member::isIn; }
 
+#pragma endregion
+
+#pragma region "IN/OUT"
+
 std::string returnInOutStatus(int i) {
   if (members[i].getInOutStatus()) {
     return "In";
@@ -48,6 +53,82 @@ std::string returnInOutStatus(int i) {
     return "Out";
   }
 }
+
+void setInOutStatus() {
+  bool finished = false;
+  while (!finished) {
+    std::cout << "Choose the Member you would like to view" << std::endl;
+    for (int i = 0; i < members.size(); i++) {
+      std::cout << i + 1<< ". " << members[i].getBusiness() << std::endl;
+    }
+    std::cout << "0. Return to main menu" << std::endl;
+    int response;
+    bool validResponse = false;
+    // std::cout << "Vector Size: " << members.size() << std::endl;
+    while (!validResponse) {
+      std::cout << "> ";
+      std::cin >> response;
+      if (response <= members.size() && response > 0) {
+        validResponse = true;
+      } else if (response == 0) {
+        validResponse = true;
+        return;
+      } else {
+        validResponse = false;
+        std::cout << "Please enter a valid response" << std::endl;
+      }
+    }
+    int index = response - 1;
+    std::cout << "To set status to in press 1, to set status to out press 0" << std::endl;
+    validResponse = false;
+    while (!validResponse) {
+      std::cout << "> ";
+      std::cin >> response;
+      if (response == 0) {
+        members[index].setInOutStatus(false);
+        validResponse = true;
+      } else if (response == 1) {
+        members[index].setInOutStatus(true);
+        validResponse = true;
+      } else {
+        validResponse = false;
+      }
+    }
+    std::cout << "To set another members in/out status please press 1, to return to the in/out menu press 0" << std::endl;
+    validResponse = false;
+    while (!validResponse) {
+      std::cout << "> ";
+      std::cin >> response;
+      if (response == 0) {
+        finished = true;
+        validResponse = true;
+      } else if (response == 1) {
+        finished = false;
+        validResponse = true;
+      } else {
+        validResponse = false;
+      }
+    }
+  }
+}
+
+void viewAllIn() {
+
+}
+
+void viewAllOut() {
+
+}
+
+void viewAll() {
+
+}
+
+void setAll() {
+
+}
+
+#pragma endregion
 
 #pragma region "MEMBER FUNCTIONS"
 // add member function that creates new member object, set info, and adds them to the members vector
