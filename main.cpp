@@ -36,24 +36,28 @@ bool inOutMenu() {
   if (!input.compare("1")) {
     clearScreen();
     std::cout << "Set Member In/Out Status" << std::endl;
-
+    setInOutStatus();
     clearScreen();
   } else if (!input.compare("2")) {
-    clearScreen();
+    // clearScreen();
     std::cout << "All Members In" << std::endl;
-    clearScreen();
+    setAll(true);
+    
   } else if (!input.compare("3")) {
-    clearScreen();
+    // clearScreen();
     std::cout << "All Members Out" << std::endl;
-    clearScreen();
+    setAll(false);
+    
   } else if (!input.compare("4")) {
     clearScreen();
     std::cout << "In Members" << std::endl;
-    clearScreen();
+    viewInOutStatus(true);
+    
   } else if (!input.compare("5")) {
     clearScreen();
     std::cout << "Out Members" << std::endl;
-    clearScreen();
+    viewInOutStatus(false);
+   
   } else if (!input.compare("0")) {
     std::cout << "Returning to main menu..." << std::endl;
     return false;
