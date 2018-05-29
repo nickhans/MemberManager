@@ -3,7 +3,7 @@
 #include <iostream>
 
 Member newMember;
-std::vector<Member> members;
+
 
 // general member constructor vector for blank member object
 Member::Member() {

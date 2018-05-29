@@ -45,4 +45,6 @@ extern void viewMemberInfo();
 extern void editMemberInfo();
 extern void removeMember();
 
+extern std::vector<Member> members;
+
 #endif
