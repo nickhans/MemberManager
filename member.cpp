@@ -1,6 +1,7 @@
 #include "member.h"
 
 #include <iostream>
+#include <string>
 
 Member newMember;
 std::vector<Member> members;
@@ -159,15 +160,20 @@ void addMember() {
   bool isIn;
   bool validResponse = false;
   std::cout << "Business: ";
-  std::cin >> business;
+  std::cin.ignore();
+  std::getline(std::cin, business);
   std::cout << "Member Name: ";
-  std::cin >> name;
+  std::cin.ignore();
+  std::getline(std::cin, name);
   std::cout << "Phone Number: ";
-  std::cin >> phoneNumber;
+  std::cin.ignore();
+  std::getline(std::cin, phoneNumber);
   std::cout << "Email: ";
-  std::cin >> email;
+  std::cin.ignore();
+  std::getline(std::cin, email);
   std::cout << "Membership Plan: ";
-  std::cin >> membershipPlan;
+  std::cin.ignore();
+  std::getline(std::cin, membershipPlan);
   /*while (!validResponse) {
     std::cout << "In the office currently? (y for yes, n for no): ";
     std::cin >> response;
@@ -288,27 +294,32 @@ void editMemberInfo() {
         std::string input;
         if (response == 1) {
           std::cout << "Input new business: ";
-          std::cin >> input;
+          std::cin.ignore();
+          std::getline(std::cin, input);
           members[index].setBusiness(input);
           validResponse = true;
         } else if (response == 2) {
           std::cout << "Input new member name: ";
-          std::cin >> input;
+          std::cin.ignore();
+          std::getline(std::cin, input);
           members[index].setName(input);
           validResponse = true;
         } else if (response == 3) {
           std::cout << "Input new phone number: ";
-          std::cin >> input;
+          std::cin.ignore();
+          std::getline(std::cin, input);
           members[index].setPhoneNumber(input);
           validResponse = true;
         } else if (response == 4) {
           std::cout << "Input new email: ";
-          std::cin >> input;
+          std::cin.ignore();
+          std::getline(std::cin, input);
           members[index].setEmail(input);
           validResponse = true;
         } else if (response == 5) {
           std::cout << "Input new membership plan: ";
-          std::cin >> input;
+          std::cin.ignore();
+          std::getline(std::cin, input);
           members[index].setMembershipPlan(input);
           validResponse = true;
         } else if (response == 0) {
