@@ -42,9 +42,9 @@ class Member {
 };
 
 // in/out functions
-extern void setInOutStatus();
-extern void viewInOutStatus(bool in);
-extern void setAll(bool in);
+extern void setInOut();
+extern void viewInOut(bool in);
+extern void setAllInOut(bool in);
 
 // member functions
 extern void addMember();

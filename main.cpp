@@ -7,7 +7,7 @@ void clearScreen() {
 }
 
 void displayInstructions() {
-  std::cout << "Welcome to Member Manager!" << std::endl;
+  std::cout << "Welcome to Member Manager!\n" << std::endl;
   std::cout << "Main Menu" << std::endl;
   std::cout << "Choose a number from the following:\n"
   "1. Add Member\n"
@@ -36,27 +36,27 @@ bool inOutMenu() {
   if (!input.compare("1")) {
     clearScreen();
     std::cout << "Set Member In/Out Status" << std::endl;
-    setInOutStatus();
+    setInOut();
     clearScreen();
   } else if (!input.compare("2")) {
-    // clearScreen();
-    std::cout << "All Members In" << std::endl;
-    setAll(true);
+    clearScreen();
+    // std::cout << "All Members In" << std::endl;
+    setAllInOut(true);
     
   } else if (!input.compare("3")) {
-    // clearScreen();
-    std::cout << "All Members Out" << std::endl;
-    setAll(false);
+    clearScreen();
+    // std::cout << "All Members Out" << std::endl;
+    setAllInOut(false);
     
   } else if (!input.compare("4")) {
     clearScreen();
-    std::cout << "In Members" << std::endl;
-    viewInOutStatus(true);
+    // std::cout << "In Members" << std::endl;
+    viewInOut(true);
     
   } else if (!input.compare("5")) {
     clearScreen();
-    std::cout << "Out Members" << std::endl;
-    viewInOutStatus(false);
+    // std::cout << "Out Members" << std::endl;
+    viewInOut(false);
    
   } else if (!input.compare("0")) {
     std::cout << "Returning to main menu..." << std::endl;

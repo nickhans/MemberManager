@@ -54,17 +54,16 @@ std::string returnInOutStatus(int i) {
   }
 }
 
-void setInOutStatus() {
+void setInOut() {
   bool finished = false;
   while (!finished) {
     std::cout << "Choose the Member you would like to view" << std::endl;
     for (int i = 0; i < members.size(); i++) {
       std::cout << i + 1<< ". " << members[i].getBusiness() << std::endl;
     }
-    std::cout << "0. Return to main menu" << std::endl;
+    std::cout << "0. Return to In/Out Menu" << std::endl;
     int response;
     bool validResponse = false;
-    // std::cout << "Vector Size: " << members.size() << std::endl;
     while (!validResponse) {
       std::cout << "> ";
       std::cin >> response;
@@ -79,7 +78,7 @@ void setInOutStatus() {
       }
     }
     int index = response - 1;
-    std::cout << "To set status to in press 1, to set status to out press 0" << std::endl;
+    std::cout << "To set status to IN press 1, to set status to OUT press 0" << std::endl;
     validResponse = false;
     while (!validResponse) {
       std::cout << "> ";
@@ -94,7 +93,7 @@ void setInOutStatus() {
         validResponse = false;
       }
     }
-    std::cout << "To set another members in/out status please press 1, to return to the in/out menu press 0" << std::endl;
+    std::cout << "To set another members in/out status press 1, to return to the in/out menu press 0" << std::endl;
     validResponse = false;
     while (!validResponse) {
       std::cout << "> ";
@@ -112,12 +111,43 @@ void setInOutStatus() {
   }
 }
 
-void viewInOutStatus(bool in) {
-
+void setAllInOut(bool in) {
+  if (in) {
+    std::cout << "\nSetting All Members In\n" << std::endl;
+    for (int i = 0; i < members.size(); i++) {
+      members[i].setInOutStatus(true);
+    }
+  } else {
+    std::cout << "\nSetting All Members Out\n" << std::endl;
+    for (int i = 0; i < members.size(); i++) {
+      members[i].setInOutStatus(false);
+    }
+  }
 }
 
-void setAll(bool in) {
-
+void viewInOut(bool in) {
+  int count = 0;
+  if (in) {
+    std::cout << "Members In:" << std::endl;
+    for (int i = 0; i < members.size(); i++) {
+      if (members[i].getInOutStatus()) {
+        count++;
+        std::cout << count << ". " << members[i].getBusiness() <<" -- In" << std::endl;
+      }
+    }
+    if (count == 0) { std:: cout << "No Members In" <<std::endl; }
+    std::cout << std::endl;
+  } else {
+    std::cout << "Members Out:" << std::endl;
+    for (int i = 0; i < members.size(); i++) {
+      if (!members[i].getInOutStatus()) {
+        count++;
+        std::cout << count << ". " << members[i].getBusiness() <<" -- Out" << std::endl;
+      }
+    }
+    if (count == 0) { std:: cout << "No Members Out" <<std::endl; }
+    std::cout << std::endl;
+  }
 }
 
 #pragma endregion
