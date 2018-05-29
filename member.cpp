@@ -112,19 +112,11 @@ void setInOutStatus() {
   }
 }
 
-void viewAllIn() {
+void viewInOutStatus(bool in) {
 
 }
 
-void viewAllOut() {
-
-}
-
-void viewAll() {
-
-}
-
-void setAll() {
+void setAll(bool in) {
 
 }
 
