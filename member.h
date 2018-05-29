@@ -6,6 +6,7 @@
 
 class Member {
   private:
+    
     // member info
     std::string name;
     std::string business;
@@ -44,7 +45,5 @@ extern void addMember();
 extern void viewMemberInfo();
 extern void editMemberInfo();
 extern void removeMember();
-
-extern std::vector<Member> members;
 
 #endif
