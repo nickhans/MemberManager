@@ -14,11 +14,10 @@ void displayInstructions() {
   "3. View Member Info\n"
   "4. Edit Member Info\n"
   "5. In/Out Menu\n"
-  "6. Quit\n";
+  "0. Quit\n";
 }
 
 bool inputAndExecute() {
-  clearScreen();
   displayInstructions();
   std::string input;
   std::cout << "> ";
@@ -27,25 +26,31 @@ bool inputAndExecute() {
     clearScreen();
     std::cout << "Add Member" << std::endl;
     addMember();
+    clearScreen();
   } else if (!input.compare("2")) {
     clearScreen();
     std::cout << "Remove Member" << std::endl;
     removeMember();
+    clearScreen();
   } else if (!input.compare("3")) {
     clearScreen();
     std::cout << "View Member Info" << std::endl;
     viewMemberInfo();
+    clearScreen();
   } else if (!input.compare("4")) {
     clearScreen();
     std::cout << "Edit Member Info" << std::endl;
     editMemberInfo();
+    clearScreen();
   } else if (!input.compare("5")) {
-    std::cout << "Option 5" << std::endl;
-  } else if (!input.compare("6")) { 
+    clearScreen();
+    std::cout << "In/Out Menu" << std::endl;
+    clearScreen();
+  } else if (!input.compare("0")) { 
     std::cout << "Quitting..." << std::endl;
     return false;
   } else {
-    std::cout << "Option Unknown" << std::endl;
+    std::cout << "\nInvalid Option\n" << std::endl;
   }
   return true;
 }
@@ -53,6 +58,7 @@ bool inputAndExecute() {
 
 
 int main() {
+  clearScreen();
   while(inputAndExecute());
   return 0;
 }
