@@ -106,8 +106,6 @@ bool inputAndExecute() {
   return true;
 }
 
-
-
 int main() {
   clearScreen();
   while(inputAndExecute());
