@@ -12,7 +12,7 @@ compile() {
     echo "" 
     make                #runs makefile to compile individual .c files    
     #add .o files below
-    g++ main.o member.o -o MemberManager      
+    g++ main.o member.o inout.o -o MemberManager      
     if [ -e MemberManager ]      #checks if MemberManager.exec was made
         then {
             echo ""

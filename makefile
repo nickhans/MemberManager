@@ -1,8 +1,8 @@
 CC = g++
 CFLAGS = -Wall -Wextra -pedantic -Wconversion
 PROG = MemberManager
-SRC = main.cpp member.cpp
-HDR = member.h
+SRC = main.cpp member.cpp inout.cpp
+HDR = member.h inout.h
 OBJ = $(SRC:.cpp=.o)
 
 #Targets
