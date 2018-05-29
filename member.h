@@ -41,6 +41,12 @@ class Member {
     bool getInOutStatus();
 };
 
+// in/out functions
+extern void setInOutStatus();
+extern void viewInOutStatus(bool in);
+extern void setAll(bool in);
+
+// member functions
 extern void addMember();
 extern void viewMemberInfo();
 extern void editMemberInfo();
