@@ -33,7 +33,7 @@
 
 # Project Specific
 *.dSYM
-MemberManager
 *.json
 *.dat
 program
+.ds_store

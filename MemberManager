@@ -1,0 +1,10 @@
+#! /bin/bash
+
+executeProgram() {
+    DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    echo "$DIR"
+    $DIR/source/compile.sh
+
+}
+
+executeProgram
