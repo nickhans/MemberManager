@@ -98,7 +98,8 @@ bool inputAndExecute() {
     while(inOutMenu());
     clearScreen();
   } else if (!input.compare("0")) { 
-    std::cout << "Quitting..." << std::endl;
+    std::cout << "Saving and quitting..." << std::endl;
+    save();
     return false;
   } else {
     std::cout << "\nInvalid Option\n" << std::endl;
@@ -108,6 +109,7 @@ bool inputAndExecute() {
 
 int main() {
   clearScreen();
+  load();
   while(inputAndExecute());
   return 0;
 }

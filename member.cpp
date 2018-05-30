@@ -1,10 +1,13 @@
 #include "member.h"
 
 #include <iostream>
+#include<fstream>
 #include <string>
 
 Member newMember;
 std::vector<Member> members;
+
+std::string filename = "data.dat";
 
 #pragma region "CONSTRUCTORS/GETSET"
 // general member constructor vector for blank member object
@@ -42,6 +45,74 @@ std::string Member::getPhoneNumber() { return Member::phoneNumber; }
 std::string Member::getEmail() { return Member::email; }
 std::string Member::getMembershipPlan() { return Member::membershipPlan; }
 bool Member::getInOutStatus() { return Member::isIn; }
+
+#pragma endregion
+
+#pragma region "SAVE/LOAD"
+
+void save() {
+  std::ofstream file;
+  file.open(filename);
+  if (file.is_open()) {
+    for (int i = 0; i < members.size(); i++) {
+      file << members[i].getBusiness() << std::endl;
+      file << members[i].getName() << std::endl;
+      file << members[i].getEmail() << std::endl; 
+      file << members[i].getPhoneNumber() << std::endl;
+      file << members[i].getMembershipPlan() << std::endl;
+      file << members[i].getInOutStatus() << std::endl;;
+      file << std::endl;
+    }
+    std::cout << "Save Successful" << std::endl;
+  } else {
+    std::cout << "Saving process failed, file could not be opened" << std::endl;
+  }
+  file.close();
+}
+
+void load() {
+  std::cout << "Loading..." << std::endl;
+  std::ifstream file;
+  file.open(filename);
+  std::string line;
+  int count = 0;
+  if (file.is_open()) {
+    while (std::getline(file, line)) {
+      if (line.empty()) {
+
+      } else {
+        if (count == 0) {
+          newMember.setBusiness(line);
+          count++;
+        } else if (count == 1) {
+          newMember.setName(line);
+          count++;
+        } else if (count == 2) {
+          newMember.setPhoneNumber(line);
+          count++;
+        } else if (count == 3) {
+          newMember.setEmail(line);
+          count++;
+        } else if (count == 4) {
+          newMember.setMembershipPlan(line);
+          count++;
+        } else if (count == 5) {
+          if (!line.compare("1")) {
+            newMember.setInOutStatus(true);
+          } else {
+            newMember.setInOutStatus(false);
+          }
+          members.push_back(newMember);
+          count = 0;
+        }
+      }
+    }
+    std::cout << "Load Successful" << std::endl;
+  } else {
+    std::cout << "Loading Process Failed, data file could not be opened" << std::endl;
+  }
+  file.close();
+}
 
 #pragma endregion
 
@@ -156,23 +227,22 @@ void viewInOut(bool in) {
 #pragma region "MEMBER FUNCTIONS"
 // add member function that creates new member object, set info, and adds them to the members vector
 void addMember() {
-  std::string business, name, phoneNumber, email, membershipPlan, response;
-  bool isIn;
+  std::string business, name, phoneNumber, email, membershipPlan;
   bool validResponse = false;
   std::cout << "Business: ";
   std::cin.ignore();
   std::getline(std::cin, business);
   std::cout << "Member Name: ";
-  std::cin.ignore();
+  // std::cin.ignore();
   std::getline(std::cin, name);
   std::cout << "Phone Number: ";
-  std::cin.ignore();
+  // std::cin.ignore();
   std::getline(std::cin, phoneNumber);
   std::cout << "Email: ";
-  std::cin.ignore();
+  // std::cin.ignore();
   std::getline(std::cin, email);
   std::cout << "Membership Plan: ";
-  std::cin.ignore();
+  // std::cin.ignore();
   std::getline(std::cin, membershipPlan);
   /*while (!validResponse) {
     std::cout << "In the office currently? (y for yes, n for no): ";
@@ -202,7 +272,7 @@ void viewMemberInfo() {
   while (!finished) {
     std::cout << "Choose the Member you would like to view" << std::endl;
     for (int i = 0; i < members.size(); i++) {
-      std::cout << i + 1<< ". " << members[i].getBusiness() << std::endl;
+      std::cout << i + 1 << ". " << members[i].getBusiness() << std::endl;
     }
     std::cout << "0. Return to main menu" << std::endl;
     int response;
