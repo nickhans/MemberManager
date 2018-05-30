@@ -36,4 +36,4 @@
 *.json
 *.dat
 program
-.ds_store
+.DS_STORE
