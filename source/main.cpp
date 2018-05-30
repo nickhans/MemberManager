@@ -15,6 +15,7 @@ void displayInstructions() {
   "3. View Member Info\n"
   "4. Edit Member Info\n"
   "5. In/Out Menu\n"
+  "6. Save\n"
   "0. Quit\n";
 }
 
@@ -98,6 +99,7 @@ bool inputAndExecute() {
     while(inOutMenu());
     clearScreen();
   } else if (!input.compare("6")) {
+    clearScreen();
     std::cout << "Saving..." << std::endl;
     save();
   } else if (!input.compare("0")) { 
