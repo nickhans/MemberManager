@@ -12,8 +12,8 @@ compile() {
     echo "" 
     make                #runs makefile to compile individual .c files    
     #add .o files below
-    g++ main.o member.o -o MemberManager      
-    if [ -e MemberManager ]      #checks if MemberManager.exec was made
+    g++ main.o member.o -o program     
+    if [ -e program ]      #checks if MemberManager.exec was made
         then {
             echo ""
             echo "Compile Successful"
@@ -24,7 +24,7 @@ compile() {
         }
     fi
     # clear
-    ./MemberManager
+    ./program
     read -p "Press [Enter] to end..."
     exit 0;
 }
