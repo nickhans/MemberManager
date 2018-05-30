@@ -97,6 +97,9 @@ bool inputAndExecute() {
     std::cout << "In/Out Menu" << std::endl;
     while(inOutMenu());
     clearScreen();
+  } else if (!input.compare("6")) {
+    std::cout << "Saving..." << std::endl;
+    save();
   } else if (!input.compare("0")) { 
     std::cout << "Saving and quitting..." << std::endl;
     save();
